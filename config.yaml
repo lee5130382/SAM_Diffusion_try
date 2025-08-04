@@ -1,0 +1,43 @@
+# 視頻物件重新著色 - 配置文件
+# =================================
+
+# 文件路徑設定
+paths:
+  video_path: "D:/project/diffusion/vedio/desk22.mp4"
+  frames_dir: "frames"
+  masks_dir: "masks" 
+  recolored_dir: "recolored_frames"
+  output_video: "output_video2.mp4"
+
+# SAM 模型設定
+sam:
+  model_type: "vit_b"  # 可選: vit_b, vit_l, vit_h
+  checkpoint_path: "sam_model/sam_vit_b_01ec64.pth"
+
+# 處理設定
+processing:
+  target_color: [0, 0, 0]  # BGR格式目標顏色 (黑色)
+  video_codec: "mp4v"      # 視頻編碼格式
+  use_cuda: true           # 是否使用 CUDA (如果可用)
+
+# 顯示設定
+display:
+  progress_interval: 30    # 每處理多少幀顯示一次進度
+  show_preview: true       # 是否顯示分割結果預覽
+  window_title: "請點選目標物件 (點選後按任意鍵)"
+
+# 優化設定
+optimization:
+  batch_size: 1           # 批次大小 (未來擴展用)
+  memory_limit_gb: 8      # 記憶體限制 (GB)
+  
+# 輸出設定  
+output:
+  preserve_fps: true      # 是否保持原始 FPS
+  quality: "high"         # 輸出品質: low, medium, high
+  
+# 除錯設定
+debug:
+  verbose: true           # 詳細輸出
+  save_intermediate: true # 保存中間結果
+  log_timing: true        # 記錄時間
